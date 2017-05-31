@@ -11,8 +11,9 @@ exports.addBar = (req, res) => {
   res.render('editBar', { title: 'Add Store' });
 };
 
-exports.createBar = async (req) => {
+exports.createBar = async (req, res) => {
   const bar = new Bar(req.body);
   await bar.save();
   console.log('Bar saved!');
+  res.redirect('/add');
 };
