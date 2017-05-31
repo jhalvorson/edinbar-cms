@@ -1,0 +1,15 @@
+mixin barForm(bar = {})
+  p hello
+  form(action="/add" method="POST" class="form")
+    label(for="name") Name
+    input(type="text" name="name")
+    label(for="description") Description
+    textarea(name="description")
+    - const tags = ['WiFI', 'Local Beers', 'Dog Friendly', 'Spirits']
+    ul.tags
+      each tag in tags
+        li.tag
+          input(type="checkbox" id=tag value=tag name="tags") 
+          label(for=tag)= tag
+    input(type="submit" value="Save Bar!" class="button")
+              
