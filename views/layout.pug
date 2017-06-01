@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= `${title}`
+    link(rel='stylesheet', href='/dist/style.css')
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
@@ -11,6 +12,9 @@ html
     .content
       block content
 
-    footer
+    footer.footer
       block footer
         p Edinbar | Built by Jamie Halvorson
+        
+    block scripts
+      script(src="/dist/App.bundle.js")
