@@ -1,15 +1,34 @@
 mixin barForm(bar = {})
   p hello
   form(action="/add" method="POST" class="form")
-    label(for="name") Name
-    input(type="text" name="name")
-    label(for="description") Description
-    textarea(name="description")
-    - const tags = ['WiFI', 'Local Beers', 'Dog Friendly', 'Spirits']
-    ul.tags
-      each tag in tags
-        li.tag
-          input(type="checkbox" id=tag value=tag name="tags") 
-          label(for=tag)= tag
-    input(type="submit" value="Save Bar!" class="button")
+    .form-section
+      label(for="name") Name
+      input(type="text" name="name" class="form-input text")
+        
+    .form-section
+      label(for="description") Description
+      textarea(name="description" class="form-input textarea")
+  
+    .form-section
+      label(for="beers") List your beers
+      input(type="text" name="beers" class="form-input text" placeholder="Innes & Gunn, Hop House 13 etc...")
+    
+    .form-section
+      label(for="wine") List your wines
+      input(type="text" name="wine" class="form-input text" placeholder="Wine, Wine etc...")
+    
+    .form-section
+      label(for="spirits") List your spirits
+      input(type="text" name="spirits" class="form-input text" placeholder="Gin, Gine etc...")
+    
+    .form-section
+      - const tags = ['WiFI', 'Local Beers', 'Dog Friendly', 'Spirits', 'Music']
+      ul.form-input.tags
+        each tag in tags
+          li.tag
+            input(type="checkbox" id=tag value=tag name="tags") 
+            label(for=tag)= tag
+            
+    .form-section
+      input(type="submit" value="Save Bar!" class="button button--save")
               

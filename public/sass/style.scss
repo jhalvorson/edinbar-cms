@@ -1,5 +1,8 @@
 @import '/layouts/reset';
+@import '/layouts/variables';
 @import '/layouts/base';
+
+@import "patterns/buttons";
 
 @import '/components/form';
 @import '/components/footer';

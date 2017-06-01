@@ -14,6 +14,9 @@ const barSchema = new mongoose.Schema({
     trim: true,
   },
   tags: [String],
+  beers: [String],
+  wines: [String],
+  spirits: [String],
 });
 
 module.exports = mongoose.model('Bar', barSchema);

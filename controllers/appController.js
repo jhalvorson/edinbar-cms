@@ -4,7 +4,6 @@ const Bar = mongoose.model('Bar');
 
 exports.appHome = (req, res) => {
   res.render('index', { title: 'Welcome Jamie' });
-  console.log(process.env.SECRET);
 };
 
 exports.addBar = (req, res) => {
