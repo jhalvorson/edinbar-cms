@@ -1,0 +1,71 @@
+.edb-dashboard {
+  background-color: $color-white;
+
+  h1 {
+    margin: 0 0 40px 0;
+  }
+
+  &--main {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .edb-nav {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+
+    h4 {
+      padding: 20px;
+      font-weight: 600;
+    }
+
+    &--links {
+      padding: 20px;
+      background-color: #FBFBFC;
+      margin: 20px;
+      border-radius: 3px;
+    }
+
+    &--link {
+      padding-bottom: 30px;
+
+      a {
+        color: $color-dark-grey;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .edb-panel {
+
+    &--header {
+      padding: 20px 30px;
+      border-radius: 3px 3px 0 0;
+      background-color: #FBFBFC;
+      border: 1px solid #EBEEF3;
+      border-bottom: 0;
+
+      h4 {
+        color: #50525C;
+        font-weight: 600;
+        font-size: 15px;
+      }
+    }
+
+    &--content {
+      background-color: #ffffff;
+      padding: 30px;
+      border: 1px solid #EBEEF3;
+    }
+
+    &--wide {
+      width: 600px;
+    }
+  }
+
+  .edb-content {
+    padding: 40px;
+  }
+}

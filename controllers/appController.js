@@ -13,6 +13,13 @@ exports.addBar = (req, res) => {
 exports.createBar = async (req, res) => {
   const bar = new Bar(req.body);
   await bar.save();
+  req.flash('success', 'Successfuly added bar.');
   console.log('Bar saved!');
+  // @TODO add flash
   res.redirect('/add');
+};
+
+exports.apiBars = async (req, res) => {
+  const bars = await Bar.find();
+  res.json(bars);
 };

@@ -1,0 +1,13 @@
+mixin loginForm(user = {})
+  form(action="/login" method="POST" class="form")
+    .form-section
+      label(for="email") Email Address
+      input(type="text" name="email" class="form-input text")
+        
+    .form-section
+      label(for="password") Password
+      input(name="password" type="password" class="form-input textarea")
+  
+    .form-section
+      input(type="submit" value="Save Bar!" class="button button--save")
+              

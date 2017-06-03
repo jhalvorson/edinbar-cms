@@ -1,7 +1,13 @@
-extends layout
+extends dashboard
+
+include mixins/_loginForm
 
 block content
-  h1 Edinbar Dashboard
-  p Submit and control the content for your bar
-  p Logins are coming
-  a(href="/add" class="button button--simple") Add a bar
+  .login-card
+    .login-card--header
+      h1.title Edinbar Dashboard
+    .login-card--inner
+      +loginForm()
+    a(href="/register") Not got an account? Register
+    
+    

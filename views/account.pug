@@ -1,0 +1,14 @@
+extends dashboard
+
+include mixins/_editUserForm
+
+block content
+  h1 Hello, #{user.name}!
+  
+  h2 Manage your bars
+  
+  .edb-panel.edb-panel--wide
+    .edb-panel--header
+      h4 Edit your details
+    .edb-panel--content
+      +editUserForm()

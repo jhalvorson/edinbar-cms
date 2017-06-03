@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    title= `${title}`
+    link(rel='stylesheet', href='/dist/style.css')
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Khula:300,400,600,700,800')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  
+  body.edb-dashboard
+    block header
+      header.top
+        nav.upper-nav
+          ul.upper-nav--inner
+            if user
+              li
+                a(href="/logout" class="button button-nav") Logout
+              li
+                a(href="/account" class="button button-nav") My Account
+            else
+              li
+                a(href="/register" class="button button-nav") Register
+              li
+                a(href="/login" class="button button-nav") Login
+        
+    block messages
+        if locals.flashes
+            .flash-messages
+              - const categories = Object.keys(locals.flashes)
+              each category in categories
+                each message in flashes[category]
+                  .flash(class=`flash--${category}`)
+                    p.flash__text!= message
+                    button.button.flash__remove(onClick="this.parentElement.remove()") &times;
+    
+    block dashboard
+    .edb-dashboard--main
+      if user
+        nav.edb-nav
+          h4 Navigation
+          ul.edb-nav--links
+            li.edb-nav--link
+              a(href="/") Dashboard
+            li.edb-nav--link
+              a(href="/add") Manage Bars
+            li.edb-nav--link
+              a(href="/") Profile
+            li.edb-nav--link
+              a(href="/") Stats
+        
+      - let contentClass = 'edb-content'
+      if !user
+        - contentClass = 'edb-content no-user'
+        
+      div(class=`${contentClass}`)
+        block content
+ 
+        footer.edb-footer
+          block footer
+            p Edinbar | Built by Jamie Halvorson
+        
+    block scripts
+      script(src="/dist/App.bundle.js")

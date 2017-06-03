@@ -1,16 +1,31 @@
 html, body {
-  font-family: sans-serif;
+  font-family: 'Khula', sans-serif;
 }
 
 h1 {
   font-size: 42px;
 }
 
+.no-user {
+  width: 100%;
+}
 
+.upper-nav {
 
-.content {
-  max-width: 1000px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  &--inner {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 15px 10px;
+  }
+
+  .button-nav {
+    margin: 10px 10px 0;
+    padding: 5px 12px;
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    color: darken(#eeeeee, 20%);
+  }
 }

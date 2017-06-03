@@ -46,16 +46,85 @@ table {
   border-spacing: 0; }
 
 html, body {
-  font-family: sans-serif; }
+  font-family: 'Khula', sans-serif; }
 
 h1 {
   font-size: 42px; }
 
-.content {
-  max-width: 1000px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+.no-user {
+  width: 100%; }
+
+.upper-nav--inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 25px 15px 10px; }
+
+.upper-nav .button-nav {
+  margin: 10px 10px 0;
+  padding: 5px 12px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #bbbbbb; }
+
+.edb-dashboard {
+  background-color: #ffffff; }
+  .edb-dashboard h1 {
+    margin: 0 0 40px 0; }
+  .edb-dashboard--main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-height: 100vh; }
+  .edb-dashboard .edb-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 210px; }
+    .edb-dashboard .edb-nav h4 {
+      padding: 20px;
+      font-weight: 600; }
+    .edb-dashboard .edb-nav--links {
+      padding: 20px;
+      background-color: #FBFBFC;
+      margin: 20px;
+      border-radius: 3px; }
+    .edb-dashboard .edb-nav--link {
+      padding-bottom: 30px; }
+      .edb-dashboard .edb-nav--link a {
+        color: #23282d;
+        text-decoration: none; }
+  .edb-dashboard .edb-panel--header {
+    padding: 20px 30px;
+    border-radius: 3px 3px 0 0;
+    background-color: #FBFBFC;
+    border: 1px solid #EBEEF3;
+    border-bottom: 0; }
+    .edb-dashboard .edb-panel--header h4 {
+      color: #50525C;
+      font-weight: 600;
+      font-size: 15px; }
+  .edb-dashboard .edb-panel--content {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #EBEEF3; }
+  .edb-dashboard .edb-panel--wide {
+    width: 600px; }
+  .edb-dashboard .edb-content {
+    padding: 40px; }
 
 .button {
   border: 0;
@@ -78,29 +147,88 @@ h1 {
 
 .form {
   display: block;
-  margin-left: auto;
   margin-right: auto;
   max-width: 600px; }
 
 .form-section {
-  display: block;
-  margin: 0 30px 30px 30px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 30px 30px 0; }
   .form-section label {
-    display: block; }
+    display: block;
+    width: 140px;
+    margin-right: 20px; }
+  .form-section.stacked {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .form-section.stacked > * {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 100%;
+              flex: 1 0 100%;
+      padding: 15px 0; }
 
 .form-input {
   display: block;
   width: 100%;
   padding: 15px; }
   .form-input.tags {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     padding: 0; }
     .form-input.tags .tag {
-      padding-right: 30px; }
+      padding-right: 30px;
+      display: inline-block; }
 
-.footer {
-  padding: 30px; }
+.edb-footer {
+  padding: 30px 30px 0; }
+
+.flash-messages {
+  position: fixed;
+  top: 20px;
+  width: 70%;
+  max-width: 800px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
+  .flash-messages .flash {
+    padding: 30px;
+    border-radius: 2px; }
+    .flash-messages .flash--success {
+      background-color: #66CC99; }
+    .flash-messages .flash--error {
+      background-color: #EC644B; }
+    .flash-messages .flash + .flash {
+      margin-bottom: 20px; }
+  .flash-messages .flash__text {
+    color: #ffffff; }
+  .flash-messages .flash__remove {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    color: #ffffff; }
+
+.login-card {
+  max-width: 500px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  .login-card--header {
+    padding: 20px 30px;
+    border-radius: 3px 3px 0 0;
+    background-color: #FBFBFC;
+    border: 1px solid #EBEEF3;
+    border-bottom: 0; }
+    .login-card--header h1 {
+      color: #50525C;
+      font-weight: 600;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 0; }
+  .login-card--inner {
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #EBEEF3; }
 
 /*# sourceMappingURL=style.css.map*/

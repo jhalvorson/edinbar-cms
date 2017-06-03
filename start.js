@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 // models 🚶
 require('./models/Bar');
+require('./models/User');
 // App
 const app = require('./app');
 

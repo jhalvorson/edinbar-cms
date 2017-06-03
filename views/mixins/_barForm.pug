@@ -1,9 +1,17 @@
 mixin barForm(bar = {})
-  p hello
   form(action="/add" method="POST" class="form")
     .form-section
       label(for="name") Name
       input(type="text" name="name" class="form-input text")
+        
+    .form-section.stacked
+      h3 Location
+      label(for="address") Address
+      input(type="text" id="address" name="location[address]" value=(bar.location && bar.location.address))
+      label(for="lat") Address Lat
+      input(type="text" id="lat" name="location[coordinates][1]" value=(bar.location && bar.location.coordinates[1]) required)
+      label(for="lng") Address Lng
+      input(type="text" id="lng" name="location[coordinates][0]" value=(bar.location && bar.location.coordinates[0]) required)
         
     .form-section
       label(for="description") Description
@@ -14,8 +22,8 @@ mixin barForm(bar = {})
       input(type="text" name="beers" class="form-input text" placeholder="Innes & Gunn, Hop House 13 etc...")
     
     .form-section
-      label(for="wine") List your wines
-      input(type="text" name="wine" class="form-input text" placeholder="Wine, Wine etc...")
+      label(for="wines") List your wines
+      input(type="text" name="wines" class="form-input text" placeholder="Wine, Wine etc...")
     
     .form-section
       label(for="spirits") List your spirits
@@ -23,6 +31,7 @@ mixin barForm(bar = {})
     
     .form-section
       - const tags = ['WiFI', 'Local Beers', 'Dog Friendly', 'Spirits', 'Music']
+      h4 Select relevant tags for your bar
       ul.form-input.tags
         each tag in tags
           li.tag

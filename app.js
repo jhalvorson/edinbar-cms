@@ -7,9 +7,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const promisify = require('es6-promisify');
 const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const passport = require('passport');
+const errorHandlers = require('./handlers/errorHandlers');
 
 const routes = require('./routes/index');
 const helpers = require('./helpers');
+require('./handlers/passport');
 
 // @TODO errorsHandlers, passport etc.
 
@@ -30,23 +34,45 @@ app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
 // This keeps users logged in and allows us to send flash messages
-// app.use(
-//   session({
-//     secret: process.env.SECRET,
-//     key: process.env.KEY,
-//     resave: false,
-//     saveUninitialized: false,
-//     store: new MongoStore({ mongooseConnection: mongoose.connection })
-//   })
-// );
+app.use(
+  session({
+    secret: 'danger',
+    key: process.env.KEY,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash());
 
 app.use((req, res, next) => {
   res.locals.h = helpers;
   res.locals.currentPath = req.path;
+  res.locals.flashes = req.flash();
+  res.locals.user = req.user || null;
+  next();
+});
+
+app.use((req, res, next) => {
+  req.login = promisify(req.login, req);
   next();
 });
 
 app.use('/', routes);
+
+app.use(errorHandlers.notFound);
+
+app.use(errorHandlers.flashValidationErrors);
+
+if (app.get('env') === 'development') {
+  app.use(errorHandlers.developmentErrors);
+}
+
+app.use(errorHandlers.productionErrors);
 
 // @TODO add error handling
 

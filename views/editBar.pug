@@ -1,7 +1,11 @@
-extends layout
+extends dashboard
 
 include mixins/_barForm
 
 block content
   h1 Add a bar
-  +barForm()
+  .edb-panel.edb-panel--wide
+    .edb-panel--header
+      h4 Edit bar details
+    .edb-panel--content
+      +barForm()

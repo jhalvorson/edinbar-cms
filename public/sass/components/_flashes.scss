@@ -1,0 +1,37 @@
+.flash-messages {
+  position: fixed;
+  top: 20px;
+  width: 70%;
+  max-width: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .flash {
+    padding: 30px;
+    border-radius: 2px;
+
+    &--success {
+      background-color: #66CC99;
+    }
+
+    &--error {
+      background-color: #EC644B;
+    }
+
+    + .flash {
+      margin-bottom: 20px;
+    }
+  }
+
+  .flash__text {
+    color: #ffffff;
+  }
+
+  .flash__remove {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    color: #ffffff;
+  }
+}

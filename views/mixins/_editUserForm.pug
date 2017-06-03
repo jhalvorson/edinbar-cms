@@ -1,0 +1,21 @@
+mixin editUserForm()
+  form(action="/account" method="POST" class="form")
+    .form-section
+      label(for="name") Name
+      input(type="text" name="name" class="form-input text" value=`${user.name}`)
+        
+    .form-section
+      label(for="email") Email Address
+      input(type="text" name="email" class="form-input text" value=`${user.email}`)
+    
+    .form-section
+      label(for="password") Password
+      input(name="password" type="password" class="form-input textarea")
+        
+    .form-section
+      label(for="password-confirm") Password Confirm
+      input(name="password-confirm" type="password" class="form-input textarea")
+  
+    .form-section
+      input(type="submit" value="Save details" class="button button--save")
+              

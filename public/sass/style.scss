@@ -1,8 +1,11 @@
 @import '/layouts/reset';
 @import '/layouts/variables';
 @import '/layouts/base';
+@import '/layouts/dashboard';
 
 @import "patterns/buttons";
 
 @import '/components/form';
 @import '/components/footer';
+@import '/components/flashes';
+@import '/components/loginCard';
