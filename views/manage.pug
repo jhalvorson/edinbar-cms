@@ -5,9 +5,16 @@ include mixins/_barForm
 block content
   h1 Manage your bars
   
-  each bar in bars
-    p #{bar.name}
-    a(href=`/manage-bars/${bar._id}/edit`) Edit bar
+  table.manage-bars
+    thead
+      th Bar name
+      th
+    tbody
+      each bar in bars
+        tr
+          td #{bar.name}
+          td 
+            a(href=`/manage-bars/${bar._id}/edit`) Edit bar
   
   h1 Add a bar
   .edb-panel.edb-panel--wide

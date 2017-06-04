@@ -7,18 +7,31 @@
 
 .button {
   @extend %button-reset;
-}
 
-.button--simple {
-  padding: 15px;
-  background-color: royalblue;
-  color: #fff;
-}
+  &--save {
+    padding: 15px;
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+    min-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.button--save {
-  padding: 15px;
-  background-color: black;
-  color: #fff;
-  font-size: 16px;
-  margin-top: 20px;
+  &--simple {
+    padding: 15px;
+    background-color: royalblue;
+    color: #fff;
+  }
+
+  &--google {
+    padding: 15px;
+    background-color: #4285F4;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

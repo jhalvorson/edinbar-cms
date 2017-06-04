@@ -15,8 +15,8 @@ exports.account = (req, res) => {
   res.render('account', { title: 'Account' });
 };
 
-const confirmOwner = (bar, user) => {
-  if(!bar.author.equals(user._id)) {
+const confirmOwner = (bar, User) => {
+  if(!bar.author.equals(User._id)) {
     console.log('Access denied');
   }
 };
@@ -61,9 +61,9 @@ exports.validateRegister = (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
-  const user = new User({ email: req.body.email, name: req.body.name });
+  const User = new User({ email: req.body.email, name: req.body.name });
   const register = promisify(User.register, User);
-  await register(user, req.body.password);
+  await register(User, req.body.password);
   next();
 };
 
@@ -77,8 +77,8 @@ exports.updateAccount = async (req, res) => {
     email: req.body.email
   };
 
-  const user = await User.findOneAndUpdate(
-    { _id: req.user._id },
+  const User = await User.findOneAndUpdate(
+    { _id: req.User._id },
     { $set: updates },
     { new: true, runValidators: true, context: 'query' }
   );

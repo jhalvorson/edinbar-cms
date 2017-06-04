@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const appController = require('../controllers/appController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
@@ -13,6 +14,15 @@ router.post('/add/:id', catchErrors(appController.updateBar));
 
 router.get('/login', authController.isNotLoggedIn, userController.loginForm);
 router.post('/login', authController.login);
+
+router.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/auth/google/callback',
+  passport.authenticate('google', {
+          successRedirect : '/account',
+          failureRedirect : '/'
+}));
 
 router.get('/register', authController.isNotLoggedIn, userController.registerForm);
 router.post('/register', userController.validateRegister, userController.register, authController.login);

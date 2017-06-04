@@ -11,7 +11,7 @@ exports.addBar = (req, res) => {
 };
 
 exports.createBar = async (req, res) => {
-  req.body.author = req.user._id;
+  req.body.author = req.User._id;
   const bar = new Bar(req.body);
   await bar.save();
   req.flash('success', 'Successfuly added bar.');
@@ -20,8 +20,8 @@ exports.createBar = async (req, res) => {
   res.redirect('/add');
 };
 
-const confirmOwner = (bar, user) => {
-  if(!bar.author.equals(user._id)) {
+const confirmOwner = (bar, User) => {
+  if(!bar.author.equals(User._id)) {
     throw Error('You must own the bar in order to edit it!');
   }
 }
@@ -29,7 +29,7 @@ const confirmOwner = (bar, user) => {
 exports.editBar = async (req, res) => {
   const bar = await Bar.findOne({ _id: req.params.id });
 
-  // confirmOwner(bar, req.user);
+  // confirmOwner(bar, req.User);
 
   res.render('editBar', { title: `Edit Bar`, bar});
 }

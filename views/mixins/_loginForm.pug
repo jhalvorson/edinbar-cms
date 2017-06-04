@@ -1,13 +1,19 @@
 mixin loginForm(user = {})
   form(action="/login" method="POST" class="form")
-    .form-section
+    .form-section.stacked
       label(for="email") Email Address
       input(type="text" name="email" class="form-input text")
         
-    .form-section
+    .form-section.stacked
       label(for="password") Password
-      input(name="password" type="password" class="form-input textarea")
+      input(name="password" type="password" class="form-input text")
   
     .form-section
-      input(type="submit" value="Save Bar!" class="button button--save")
+      input(type="submit" value="Login" class="button button--save")
+    
+    .form-section    
+      p.form--split or
+        
+    .form-section
+      a(href="/auth/google" class="button button--google") Sign in with Google
               

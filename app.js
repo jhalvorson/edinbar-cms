@@ -9,6 +9,7 @@ const promisify = require('es6-promisify');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const errorHandlers = require('./handlers/errorHandlers');
 
 const routes = require('./routes/index');

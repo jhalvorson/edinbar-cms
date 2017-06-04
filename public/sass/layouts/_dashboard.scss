@@ -69,3 +69,23 @@
     padding: 40px;
   }
 }
+
+.manage-bars {
+  width: 100%;
+  margin-bottom: 80px;
+  thead {
+    background-color: #FBFBFC;
+    th {
+      text-align: left;
+      padding: 15px 10px;
+      border: 1px solid #EBEEF3;
+      border-bottom: 0;
+    }
+  }
+  td {
+    text-align: left;
+    padding: 15px 10px;
+    border: 1px solid #EBEEF3;
+
+  }
+}

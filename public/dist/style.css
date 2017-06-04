@@ -126,6 +126,21 @@ h1 {
   .edb-dashboard .edb-content {
     padding: 40px; }
 
+.manage-bars {
+  width: 100%;
+  margin-bottom: 80px; }
+  .manage-bars thead {
+    background-color: #FBFBFC; }
+    .manage-bars thead th {
+      text-align: left;
+      padding: 15px 10px;
+      border: 1px solid #EBEEF3;
+      border-bottom: 0; }
+  .manage-bars td {
+    text-align: left;
+    padding: 15px 10px;
+    border: 1px solid #EBEEF3; }
+
 .button {
   border: 0;
   background: none;
@@ -133,22 +148,38 @@ h1 {
   -webkit-box-shadow: none;
           box-shadow: none; }
 
-.button--simple {
-  padding: 15px;
-  background-color: royalblue;
-  color: #fff; }
-
 .button--save {
   padding: 15px;
   background-color: black;
   color: #fff;
   font-size: 16px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  min-width: 160px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.button--simple {
+  padding: 15px;
+  background-color: royalblue;
+  color: #fff; }
+
+.button--google {
+  padding: 15px;
+  background-color: #4285F4;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
 
 .form {
   display: block;
   margin-right: auto;
   max-width: 600px; }
+  .form--split {
+    text-align: center;
+    font-weight: 600;
+    margin: 0 auto -30px; }
 
 .form-section {
   display: -webkit-box;
@@ -172,6 +203,8 @@ h1 {
   display: block;
   width: 100%;
   padding: 15px; }
+  .form-input.text {
+    padding: 15px; }
   .form-input.tags {
     padding: 0; }
     .form-input.tags .tag {
@@ -230,5 +263,9 @@ h1 {
     background-color: #ffffff;
     padding: 30px;
     border: 1px solid #EBEEF3; }
+  .login-card .register-link {
+    margin: 20px 0;
+    display: block;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map*/

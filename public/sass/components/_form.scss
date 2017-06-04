@@ -2,6 +2,12 @@
   display: block;
   margin-right: auto;
   max-width: 600px;
+
+  &--split {
+    text-align: center;
+    font-weight: 600;
+    margin: 0 auto -30px;
+  }
 }
 
 .form-section {
@@ -29,7 +35,7 @@
   padding: 15px;
 
   &.text {
-
+    padding: 15px;
   }
 
   &.textarea {
