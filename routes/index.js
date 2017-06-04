@@ -9,6 +9,7 @@ const router = express.Router();
 router.get('/', appController.appHome);
 router.get('/add', authController.isLoggedIn, appController.addBar);
 router.post('/add', catchErrors(appController.createBar));
+router.post('/add/:id', catchErrors(appController.updateBar));
 
 router.get('/login', authController.isNotLoggedIn, userController.loginForm);
 router.post('/login', authController.login);
@@ -16,12 +17,12 @@ router.post('/login', authController.login);
 router.get('/register', authController.isNotLoggedIn, userController.registerForm);
 router.post('/register', userController.validateRegister, userController.register, authController.login);
 
-router.get('/account', authController.isLoggedIn, authController.isLoggedIn, userController.account);
+router.get('/account', authController.isLoggedIn, userController.account);
 
 router.get('/logout', authController.logout);
 
-router.get('/account', userController.account);
-
+router.get('/manage-bars', authController.isLoggedIn, userController.manage);
+router.get('/manage-bars/:id/edit', authController.isLoggedIn, appController.editBar);
 /*--------------
 * API
 ---------------*/

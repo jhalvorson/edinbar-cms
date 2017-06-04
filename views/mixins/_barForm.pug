@@ -1,8 +1,8 @@
 mixin barForm(bar = {})
-  form(action="/add" method="POST" class="form")
+  form(action=`/add/${bar._id || ''}` method="POST" class="form")
     .form-section
       label(for="name") Name
-      input(type="text" name="name" class="form-input text")
+      input(type="text" name="name" class="form-input text" value=(bar.name && bar.name))
         
     .form-section.stacked
       h3 Location

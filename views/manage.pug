@@ -3,9 +3,15 @@ extends dashboard
 include mixins/_barForm
 
 block content
+  h1 Manage your bars
+  
+  each bar in bars
+    p #{bar.name}
+    a(href=`/manage-bars/${bar._id}/edit`) Edit bar
+  
   h1 Add a bar
   .edb-panel.edb-panel--wide
     .edb-panel--header
       h4 Edit bar details
     .edb-panel--content
-      +barForm(bar)
+      +barForm()

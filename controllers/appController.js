@@ -11,6 +11,7 @@ exports.addBar = (req, res) => {
 };
 
 exports.createBar = async (req, res) => {
+  req.body.author = req.user._id;
   const bar = new Bar(req.body);
   await bar.save();
   req.flash('success', 'Successfuly added bar.');
@@ -18,6 +19,35 @@ exports.createBar = async (req, res) => {
   // @TODO add flash
   res.redirect('/add');
 };
+
+const confirmOwner = (bar, user) => {
+  if(!bar.author.equals(user._id)) {
+    throw Error('You must own the bar in order to edit it!');
+  }
+}
+
+exports.editBar = async (req, res) => {
+  const bar = await Bar.findOne({ _id: req.params.id });
+
+  // confirmOwner(bar, req.user);
+
+  res.render('editBar', { title: `Edit Bar`, bar});
+}
+
+exports.updateBar = async (req, res) => {
+  const bar = await Bar.findOneAndUpdate({_id: req.params.id}, req.body, {
+    new: true,
+    runValidators: true
+  }).exec();
+
+  req.flash('success', `Successfuly updated ${bar.name}.`);
+  res.redirect('/manage-bars');
+}
+
+exports.findAuthorBars = async (req, res) => {
+  const bars = await Bar.find();
+  res.render(bars);
+}
 
 exports.apiBars = async (req, res) => {
   const bars = await Bar.find();

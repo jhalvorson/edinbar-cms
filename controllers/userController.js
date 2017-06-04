@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const promisify = require('es6-promisify');
+const Bar = mongoose.model('Bar');
 
 exports.loginForm = (req, res) => {
   res.render('login', { title: 'Login' });
@@ -13,6 +14,21 @@ exports.registerForm = (req, res) => {
 exports.account = (req, res) => {
   res.render('account', { title: 'Account' });
 };
+
+const confirmOwner = (bar, user) => {
+  if(!bar.author.equals(user._id)) {
+    console.log('Access denied');
+  }
+};
+
+exports.manage = async (req, res) => {
+  const bars = await Bar.find({ author: req.user._id});
+  res.render('manage', { title: 'Manage Bars', bars });
+};
+
+// exports.editBar = (req, res) => {
+//   res.render('editBar', bar);
+// };
 
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody('name');

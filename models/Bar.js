@@ -41,6 +41,11 @@ const barSchema = new mongoose.Schema({
       required: 'You must supply an address',
     },
   },
+  author: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: 'You must supply a bar owner'
+  }
 });
 
 barSchema.index({
