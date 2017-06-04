@@ -2,3 +2,5 @@ variables.env
 node_modules/
 public/dist/
 public/uploads/
+.DS_Store
+*.log
