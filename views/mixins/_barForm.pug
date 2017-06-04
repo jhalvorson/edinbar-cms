@@ -9,9 +9,9 @@ mixin barForm(bar = {})
       label(for="address") Address
       input(type="text" id="address" name="location[address]" value=(bar.location && bar.location.address))
       label(for="lat") Address Lat
-      input(type="text" id="lat" name="location[coordinates][1]" value=(bar.location && bar.location.coordinates[1]) required)
+      input(type="text" id="lat" name="location[coordinates][lat]" value=(bar.location && bar.location.coordinates.lat) required)
       label(for="lng") Address Lng
-      input(type="text" id="lng" name="location[coordinates][0]" value=(bar.location && bar.location.coordinates[0]) required)
+      input(type="text" id="lng" name="location[coordinates][lng]" value=(bar.location && bar.location.coordinates.lng) required)
         
     .form-section
       label(for="description") Description

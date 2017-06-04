@@ -23,3 +23,18 @@ exports.apiBars = async (req, res) => {
   const bars = await Bar.find();
   res.json(bars);
 };
+
+exports.searchBars = async (req, res) => {
+  const bars = await Bar.find({
+    $text: {
+      $search: req.query.q
+    }
+  }, {
+    score: { $meta: 'textScore' }
+  })
+  .sort({
+    score: { $meta: 'textScore' }
+  })
+  .limit(10);
+  res.json(bars);
+}

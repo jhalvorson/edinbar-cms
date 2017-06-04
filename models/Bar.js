@@ -26,17 +26,25 @@ const barSchema = new mongoose.Schema({
       type: String,
       default: 'Point',
     },
-    coordinates: [
-      {
+    coordinates: {
+      lng: {
         type: Number,
         required: 'You must supply coordinates',
       },
-    ],
+      lat: {
+        type: Number,
+        required: 'You must supply coordinates',
+      },
+    },
     address: {
       type: String,
       required: 'You must supply an address',
     },
   },
+});
+
+barSchema.index({
+  name: 'text'
 });
 
 barSchema.pre('save', async function (next) {

@@ -26,6 +26,7 @@ router.get('/account', userController.account);
 * API
 ---------------*/
 
-router.get('/api/v1/bars', appController.apiBars);
+router.get('/api/v1/bars', catchErrors(appController.apiBars));
+router.get('/api/v1/search', catchErrors(appController.searchBars));
 
 module.exports = router;
