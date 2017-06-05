@@ -54,6 +54,11 @@ exports.apiBars = async (req, res) => {
   res.json(bars);
 };
 
+exports.apiBarsId = async (req, res) => {
+  const bars = await Bar.find({ _id: req.params.id });
+  res.json(bars);
+};
+
 exports.searchBars = async (req, res) => {
   const bars = await Bar.find({
     $text: {

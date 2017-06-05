@@ -38,6 +38,7 @@ router.get('/manage-bars/:id/edit', authController.isLoggedIn, appController.edi
 ---------------*/
 
 router.get('/api/v1/bars', catchErrors(appController.apiBars));
+router.get('/api/v1/bars/:id', catchErrors(appController.apiBarsId));
 router.get('/api/v1/search', catchErrors(appController.searchBars));
 
 module.exports = router;
